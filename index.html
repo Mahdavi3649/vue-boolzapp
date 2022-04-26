@@ -41,6 +41,24 @@
                     </div>
                 </section>
 
+                <section class="contact_search">
+                    <button type="button" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                </section>
+
+                <section class="contact_list" v-for="(item, index) in contacts">
+                    <div class="contact_list_style" >
+                        <img :src="item[selected].avatar">
+                        <div>
+                            <p> {{item[selected].name}} </p>
+                        </div>
+
+                    </div>
+
+                </section>
+
             </div>
             <div id="chats-container">
 

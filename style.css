@@ -89,3 +89,57 @@
     height: 40px;
     width: 40px;
 }
+
+.contact_search {
+    display: flex;
+    padding: 3px;
+}
+
+.contact_search button {
+    background-color: #FFF;
+    color: darkgrey;
+    padding: 0 4px;
+}
+
+.contact_search button, input {
+    border: none;
+    outline: none;
+}
+
+.contact_search button::selection, 
+input::selection {
+    outline: none;
+}
+
+.contact_search input {
+    width: 100%;
+}
+
+.contact_list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    background-color: #FFF;
+    overflow-y: scroll;
+    height: calc(100% - 200px);
+}
+
+.contact_list img {
+    width: 40px;
+    height: 40px;
+}
+
+.contact_list_style {
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.contact_list_style p{
+    text-align: center;
+    margin-left: 20px;
+}
+
+.contact_list_style:active {
+    background-color: lightgrey;
+}
