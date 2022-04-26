@@ -24,10 +24,10 @@
                         </div>
                     </div>
 
-                    <div id="user-nav-side">
-                        <i class="fa-solid fa-circle-notch fa-xl"></i>
-                        <i class="fa-solid fa-message fa-xl"></i>
-                        <i class="fa-solid fa-ellipsis-vertical fa-xl"></i>
+                    <div class="user-nav-side">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </section>
                 
@@ -48,11 +48,13 @@
                     <input type="text" placeholder="Cerca o inizia una nuova chat">
                 </section>
 
-                <section class="contact_list" v-for="(item, index) in contacts">
-                    <div class="contact_list_style" >
-                        <img :src="item[selected].avatar">
-                        <div>
-                            <p> {{item[selected].name}} </p>
+                <section class="contact_list">
+                    <div class="contact_list_style"  v-for="(item, index) in contacts">
+                        <img :src="item.avatar">
+                        <div class="ms-3 contact-text">
+                            <p> {{item.name}} </p>
+                            <p> {{item.date}} </p>
+                            <span>ultimo messaggio inviato</span>
                         </div>
 
                     </div>
@@ -61,6 +63,21 @@
 
             </div>
             <div id="chats-container">
+                <div class="messages_header">
+
+                    <div class="messages_header_avi">
+                        <img :src="contacts[selected].avatar">
+                        <div class="messages_header_avitext">
+                            <p>{{contacts[selected].name}}</p>
+                            <p>Ultimo accesso : {{contacts[selected].date}}</p>
+                        </div>
+                    </div>
+                    <div class="messages_header_icons">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
 
             </div>
 
@@ -72,6 +89,4 @@
 </body>
 </html>
 
-background: #009688;
-background: #D5F9BA;
-background: #DBDBD2;
+

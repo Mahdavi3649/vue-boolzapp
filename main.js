@@ -7,7 +7,7 @@ Click sul contatto mostra la conversazione del contatto cliccato
 Questa é la struttura dati che dovete usare:
 copiatela cosí com'é e non fate modifiche a quello che contiene, c'é giá tutto quello che vi occorre per volgere l'esercizio. */
 
-const app = Vue({
+const app = new Vue({
     el: "#app",
     data: {
         selected: 0,

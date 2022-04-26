@@ -12,15 +12,20 @@
 }
 
 #side{
-    width: 35%;
+    width: 30%;
     height: 100%;
-    background-color: #a0b2bb;
+    background-color: #FAFAFA;
+    ;
     border-right: 1px solid #3f4448; 
 }
 
+.user-nav-side i {
+    margin: 0 6px;
+    color: darkgrey;
+}
 #chats-container {
-    width: 65%;
-    height: 100%;
+    width: 70%;
+    height: 100vh;
     background-color: #131c21;
 }
 
@@ -121,12 +126,12 @@ input::selection {
     padding-top: 10px;
     background-color: #FFF;
     overflow-y: scroll;
-    height: calc(100% - 200px);
 }
 
 .contact_list img {
     width: 40px;
     height: 40px;
+    border-radius: 50px;
 }
 
 .contact_list_style {
@@ -142,4 +147,47 @@ input::selection {
 
 .contact_list_style:active {
     background-color: lightgrey;
+}
+
+.messages_header {
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgrey;
+    align-items: center;
+    padding: 4px;
+}
+
+.messages_header_icons {
+    display: flex;
+}
+
+.messages_header_avi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+.messages_header_avi img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+
+}
+
+.messages_header_avitext {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    font-size: 10px;
+}
+
+.messages_header_avi p {
+    margin-left: 10px;
+    line-height: 5px;
+
+}
+
+.messages_header_icons i {
+    margin: 0 8px;
+    color: darkgrey;
 }
