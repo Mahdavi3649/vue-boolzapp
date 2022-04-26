@@ -10,6 +10,7 @@ copiatela cosí com'é e non fate modifiche a quello che contiene, c'é giá tut
 const app = new Vue({
     el: "#app",
     data: {
+
         selected: 0,
         contacts: [
             {
@@ -174,6 +175,13 @@ const app = new Vue({
                     }
                 ],
             }
-        ]
+        ],
+        searchContact: "",
+    },
+    methods: {
+        contactChange(index){
+            this.contactsIndex = index;
+        }
+
     }
 })

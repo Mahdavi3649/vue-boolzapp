@@ -15,7 +15,6 @@
     width: 30%;
     height: 100%;
     background-color: #FAFAFA;
-    ;
     border-right: 1px solid #3f4448; 
 }
 
@@ -51,7 +50,7 @@
 }
 
 .side-header{
-    display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
@@ -152,7 +151,7 @@ input::selection {
 .messages_header {
     display: flex;
     justify-content: space-between;
-    background-color: lightgrey;
+    background-color: #DBDBD2;
     align-items: center;
     padding: 4px;
 }
@@ -190,4 +189,51 @@ input::selection {
 .messages_header_icons i {
     margin: 0 8px;
     color: darkgrey;
+}
+
+.messages_body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 105px);
+    overflow-y: scroll;
+    background-image: url(./img/mine.jpg);
+    padding: 25px 25px;
+}
+
+.sent, .received {
+    padding: 6px 16px;
+    border-radius: 10px;
+    max-width: 250px;
+    margin-bottom: 20px;
+}
+
+.received {
+    align-self: flex-start;
+    background-color: #FFF;
+}
+
+.sent {
+    align-self: flex-end;
+    background-color: #D5F9BA;
+}
+
+.messages_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color:#FAFAFA;
+    ;
+}
+
+.messages_footer i {
+    margin: 0 25px;
+    font-weight: bold;
+    color: darkgrey;
+}
+
+.messages_footer input {
+    width: calc(100% - 150px);
+    height: 70%;
+    border-radius: 10px;
 }
