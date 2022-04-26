@@ -50,12 +50,15 @@
 
                 <section class="contact_list">
                     <div class="contact_list_style" @click="contactChange(index)"  v-for="(item, index) in contacts">
-                        <img :src="item.avatar">
+                       
+                         <img :src="item.avatar">
                         <div class="ms-3 contact-text">
-                            <p> {{item.name}} </p>
-                            <p> {{item.date}} </p>
-                            <span>ultimo messaggio inviato</span>
+                            <p> {{item.name}}  
+                                <span class="fsize-9"> {{item.messages[item.messages.length -1].date}} </span>
+                            </p>
+                            <span>{{item.messages[item.messages.length -1].message}}</span>
                         </div>
+                
                     </div>
                 </section>
 
@@ -66,7 +69,7 @@
 
                     <div class="messages_header_avi">
                         <img :src="contacts[selected].avatar">
-                        <div class="messages_header_avitext">
+                        <div class="messages_header_user">
                             <p>{{contacts[selected].name}}</p>
                             <p>Ultimo accesso : {{contacts[selected].date}}</p>
                         </div>
