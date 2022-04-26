@@ -13,25 +13,33 @@
 
     <div id="app">
 
-       
             <div id="side">
-
-                <header>
+                <section class="side-header">
                     <div class="user-info">
                         <div class="user-pic">
                             <img src="img/avatar_io.jpg">
                         </div>
-                        <div :class="user-name">
-                            {{user.name}}
+                        <div class="user-name">
+                           <h6>Sofia</h6>
                         </div>
                     </div>
 
                     <div id="user-nav-side">
-                        <i class="fas fa-address-card"></i>
-                        <i class="fas fa-comment-alt"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fa-solid fa-circle-notch fa-xl"></i>
+                        <i class="fa-solid fa-message fa-xl"></i>
+                        <i class="fa-solid fa-ellipsis-vertical fa-xl"></i>
                     </div>
-                </header>
+                </section>
+                
+                <section class="contact_alert">
+                    <div class="contact_alert_icon">
+                        <i class="fas fa-bell-slash"></i>
+                    </div>
+                    <div class="contact_alert_text">
+                        <p>Ricevi notifiche di nuovi messaggi</p>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>
+                </section>
 
             </div>
             <div id="chats-container">

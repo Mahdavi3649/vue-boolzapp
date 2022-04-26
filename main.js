@@ -10,10 +10,6 @@ copiatela cosí com'é e non fate modifiche a quello che contiene, c'é giá tut
 const app = Vue({
     el: "#app",
     data: {
-        user: {
-            name: "Sam",
-            avatar: "./img/mine.jpg"
-        },
         contacts: [
             {
             name: 'Michele',
