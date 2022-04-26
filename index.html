@@ -71,7 +71,7 @@
                         <img :src="contacts[selected].avatar">
                         <div class="messages_header_user">
                             <p>{{contacts[selected].name}}</p>
-                            <p>Ultimo accesso : {{contacts[selected].date}}</p>
+                            <p>Ultimo accesso : {{contacts[selected].messages[contacts[selected].messages.length -1].date}}</p>
                         </div>
                     </div>
                     <div class="messages_header_icons">
