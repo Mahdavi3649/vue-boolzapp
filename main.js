@@ -180,7 +180,7 @@ const app = new Vue({
     },
     methods: {
         contactChange(index){
-            this.contactsIndex = index;
+            this.selected = index;
         }
 
     }
