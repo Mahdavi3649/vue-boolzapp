@@ -10,7 +10,7 @@ body{
 
 #app {
     height: 100vh;
-    max-width: 1000px;
+    max-width: 1100px;
     width: 80%;
     display: flex;
     margin: 3rem auto;
@@ -265,8 +265,7 @@ input::selection {
 
 .messages-footer i {
     margin: 0 20px;
-    font-weight: bold;
-    color: darkgrey;
+    color: #726f6f;
 }
 
 .messages-footer input {
