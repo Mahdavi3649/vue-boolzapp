@@ -11,98 +11,115 @@
 </head>
 <body>
 
-    <div id="app">
+    <main id="site-main">
+        <div class="bg-lower"></div>
+        <!-- background -->
 
-            <div id="side">
-                <section class="side-header">
-                    <div class="user-info">
-                        <div class="user-pic">
-                            <img src="img/avatar_io.jpg">
+        <div id="app">
+    
+                <div id="aside">
+                    <section class="aside-header">
+                        <div class="user-info">
+                            <div class="user-pic">
+                                <img src="img/avatar_io.jpg">
+                            </div>
+                            <!-- user-pic -->
+                            <div class="user-name">
+                               <h6>Sofia</h6>
+                            </div>
+                            <!-- user-name -->
                         </div>
-                        <div class="user-name">
-                           <h6>Sofia</h6>
+                        <!-- user-info -->
+    
+                        <div class="user-nav-icons">
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
-                    </div>
-
-                    <div class="user-nav-side">
-                        <i class="fa-solid fa-circle-notch"></i>
-                        <i class="fa-solid fa-message"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </section>
-                
-                <section class="contact_alert">
-                    <div class="contact_alert_icon">
-                        <i class="fas fa-bell-slash"></i>
-                    </div>
-                    <div class="contact_alert_text">
-                        <p>Ricevi notifiche di nuovi messaggi</p>
-                        <a href="#">Attiva notifiche desktop</a>
-                    </div>
-                </section>
-
-                <section class="contact_search">
-                    <button type="button" class="search-button">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
-                </section>
-
-                <section class="contact_list">
-                    <div class="contact_list_style" @click="contactChange(index)"  v-for="(item, index) in contacts">
-                       
-                         <img :src="item.avatar">
-                        <div class="ms-3 contact-text">
-                            <p> {{item.name}}  
-                                <span class="fsize-9"> {{item.messages[item.messages.length -1].date}} </span>
-                            </p>
-                            <span>{{item.messages[item.messages.length -1].message}}</span>
+                        <!-- user-nav-icon -->
+                    </section>
+                    <!-- aside-header-section -->
+                    
+                    <section class="contact_alert">
+                        <div class="contact_alert_icon">
+                            <i class="fas fa-bell-slash fa-xl"></i>
                         </div>
-                
-                    </div>
-                </section>
-
-            </div>
-
-            <div id="chats-container">
-                <section class="messages_header">
-
-                    <div class="messages_header_avi">
-                        <img :src="contacts[selected].avatar">
-                        <div class="messages_header_user">
-                            <p>{{contacts[selected].name}}</p>
-                            <p>Ultimo accesso : {{contacts[selected].messages[contacts[selected].messages.length -1].date}}</p>
+                        <!-- contact_alert_icon -->
+                        <div class="contact_alert_text">
+                            <p class="fsize-11">Ricevi notifiche di nuovi messaggi</p>
+                            <a href="#">Attiva notifiche desktop</a>
                         </div>
-                    </div>
-                    <div class="messages_header_icons">
-                        <i class="fas fa-search"></i>
-                        <i class="fas fa-paperclip"></i>
-                        <i class="fas fa-ellipsis-v"></i>
-                    </div>
-                </section>
+                        <!-- contact_alert_text -->
+                    </section>
+                    <!-- contact-alert-section -->
+    
+                    <section class="contact_search">
+                        <button type="button" class="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
+                    </section>
+                    <!-- contact_search-section -->
+    
+                    <section class="contact_list">
+                        <div class="contact_list_style" @click="contactChange(index)"  v-for="(item, index) in contacts">
+                           
+                             <img :src="item.avatar">
+                            <div class="ms-3">
+                                <p class="fsize-14"> {{item.name}}  
+                                    <span class="fsize-9"> {{item.messages[item.messages.length -1].date}} </span>
+                                </p>
+                                <span class="fsize-13">{{item.messages[item.messages.length -1].message}}</span>
 
-                <section class="messages_body">
-                    <div v-for="(item, index) in contacts[selected].messages" v-bind:class="item.status">
-                        <span>{{item.message}}</span>
-                    </div>
-                </section>
-
-                <section class="messages_footer">
-                    <i class="fa-solid fa-face-smile"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="inputText" v-on:keyup.enter='enterKey'>
-                    <i class="fa-regular fa-microphone"></i>
-                </section>
-
-            
-
-            </div>
-
-    </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- contact-list-section -->
+                </div>
+                <!-- contact-aside -->
+    
+                <div id="chats-container">
+                    <section class="messages_header">
+    
+                        <div class="messages_header_avi">
+                            <img :src="contacts[selected].avatar">
+                            <div class="messages_header_user">
+                                <p class="fsize-14">{{contacts[selected].name}}</p>
+                                <p>Ultimo accesso : {{contacts[selected].messages[contacts[selected].messages.length -1].date}}</p>
+                            </div>
+                        </div>
+                        <!-- messages_header_avi -->
+                        <div class="messages_header_icons">
+                            <i class="fas fa-search"></i>
+                            <i class="fas fa-paperclip"></i>
+                            <i class="fas fa-ellipsis-v"></i>
+                        </div>
+                        <!-- messages_header_icons -->
+                    </section>
+                    <!-- messages-header-section -->
+    
+                    <section class="messages_body">
+                        <div v-for="(item, index) in contacts[selected].messages" v-bind:class="item.status">
+                            <span class="fsize-13">{{item.message}}</span>
+                        </div>
+                    </section>
+                    <!-- messages_body -->
+    
+                    <section class="messages_footer">
+                        <i class="fa-solid fa-face-smile"></i>
+                        <input type="text" placeholder="Scrivi un messaggio" v-model="inputText" v-on:keyup.enter='enterKey'>
+                        <i class="fa-regular fa-microphone"></i>
+                    </section>
+                    <!-- messages_footer -->
+                </div>
+                <!-- chats-container -->
+        </div>
+        <!-- root -->
+    </main>
+    <!-- site-main -->
     
 
     <script src='https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js'></script> 
     <script src="./main.js"></script>
 </body>
 </html>
-
-
