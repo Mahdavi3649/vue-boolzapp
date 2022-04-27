@@ -10,15 +10,10 @@
     <title>Whatsapp</title>
 </head>
 <body>
-
-    <main id="site-main">
-        <div class="bg-lower"></div>
-        <!-- background -->
-
         <div id="app">
     
                 <div id="aside">
-                    <section class="aside-header">
+                    <section class="aside-top">
                         <div class="user-info">
                             <div class="user-pic">
                                 <img src="img/avatar_io.jpg">
@@ -40,7 +35,7 @@
                     </section>
                     <!-- aside-header-section -->
                     
-                    <section class="contact_alert">
+                    <section class="contact-alert">
                         <div class="contact_alert_icon">
                             <i class="fas fa-bell-slash fa-xl"></i>
                         </div>
@@ -53,7 +48,7 @@
                     </section>
                     <!-- contact-alert-section -->
     
-                    <section class="contact_search">
+                    <section class="contact-search">
                         <button type="button" class="search-button">
                             <i class="fas fa-search"></i>
                         </button>
@@ -61,8 +56,8 @@
                     </section>
                     <!-- contact_search-section -->
     
-                    <section class="contact_list">
-                        <div class="contact_list_style" @click="contactChange(index)"  v-for="(item, index) in contacts">
+                    <section class="contact-list">
+                        <div class="contact-list-style" v-for="(item, index) in contacts" :class="index === selected ? 'active' : ''" @click="contactChange(index)">
                            
                              <img :src="item.avatar">
                             <div class="ms-3">
@@ -79,44 +74,42 @@
                 <!-- contact-aside -->
     
                 <div id="chats-container">
-                    <section class="messages_header">
+                    <section class="messages-top">
     
-                        <div class="messages_header_avi">
+                        <div class="messages-header">
                             <img :src="contacts[selected].avatar">
-                            <div class="messages_header_user">
+                            <div class="messages-header-user">
                                 <p class="fsize-14">{{contacts[selected].name}}</p>
                                 <p>Ultimo accesso : {{contacts[selected].messages[contacts[selected].messages.length -1].date}}</p>
                             </div>
                         </div>
-                        <!-- messages_header_avi -->
-                        <div class="messages_header_icons">
+                        <!-- messages-header-->
+                        <div class="messages-header-icons">
                             <i class="fas fa-search"></i>
                             <i class="fas fa-paperclip"></i>
                             <i class="fas fa-ellipsis-v"></i>
                         </div>
-                        <!-- messages_header_icons -->
+                        <!-- messages-header-icons -->
                     </section>
-                    <!-- messages-header-section -->
+                    <!-- messages-top-section -->
     
-                    <section class="messages_body">
+                    <section class="messages-body">
                         <div v-for="(item, index) in contacts[selected].messages" v-bind:class="item.status">
                             <span class="fsize-13">{{item.message}}</span>
                         </div>
                     </section>
-                    <!-- messages_body -->
+                    <!-- messages-body -->
     
-                    <section class="messages_footer">
+                    <section class="messages-footer">
                         <i class="fa-solid fa-face-smile"></i>
                         <input type="text" placeholder="Scrivi un messaggio" v-model="inputText" v-on:keyup.enter='enterKey'>
                         <i class="fa-regular fa-microphone"></i>
                     </section>
-                    <!-- messages_footer -->
+                    <!-- messages-footer -->
                 </div>
                 <!-- chats-container -->
         </div>
         <!-- root -->
-    </main>
-    <!-- site-main -->
     
 
     <script src='https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js'></script> 

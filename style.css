@@ -3,44 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
-#site-main{
-    width: 100%;
-    height: 100vh;
-    background-color: #d8dbd7;
-    position: relative;
-}
-
-
-.bg-lower {
-    height: 15vh;
-    background-color: #009688;
+body{
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #009688 0px, #009688 100px, #DBDBD3 100px, #DBDBD3 100%);
 }
 
 #app {
-    height: 90vh;
-    width: 900px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+    height: 80vh;
+    max-width: 900px;
+    width: 80%;
     display: flex;
+    margin: 3rem auto;
 }
 
 #aside{
     width: 35%;
-    height: 100vh;
+    height: 70vh;   
     background-color: #FAFAFA;
 }
 
+#chats-container {
+    width: 65%;
+    height: 70vh;
+}
 .user-nav-icons i {
     margin: 0 6px;
     color: darkgrey;
-}
-#chats-container {
-    width: 65%;
-    height: 100vh;
-    background-color: #131c21;
 }
 
 .user-info {
@@ -64,7 +52,7 @@
     margin-left: 1rem;
 }
 
-.aside-header{
+.aside-top{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,7 +61,7 @@
   border-right: 1px solid #c8d3c4;
 }
 
-.contact_alert{
+.contact-alert{
     display: flex;
     align-items: center;
     background-color: #8EDAFC;
@@ -112,60 +100,60 @@
     width: 35px;
 }
 
-.contact_search {
+.contact-search {
     display: flex;
     padding: 3px;
 }
 
-.contact_search button {
+.contact-search button {
     background-color: #FFF;
     color: darkgrey;
     padding: 0 16px;
 }
 
-.contact_search button, input {
+.contact-search button, input {
     border: none;
     outline: none;
     margin: 0 5px;
 }
 
-.contact_search button::selection, 
+.contact-search button::selection, 
 input::selection {
     outline: none;
 }
 
-.contact_search input {
+.contact-search input {
     width: 100%;
 }
 
-.contact_list {
+.contact-list {
     display: flex;
     flex-direction: column;
     padding-top: 10px;
     background-color: #FFF;
     overflow-y: scroll;
-
+    height: calc(100% - 30px);
 }
 
-.contact_list img {
+.contact-list img {
     width: 40px;
     height: 40px;
     border-radius: 50px;
 }
 
-.contact_list_style {
+.contact-list-style {
     margin: 6px;
     display: flex;
     align-items: center;
 }
 
-.contact_list_style p{
+.contact-list-style p{
     margin: 0;
 }
 
 
-.contact_list_style:active {
-    background-color: #DBDBD2;
+.active {
+    background-color: rgb(230, 227, 227);
 }
 
 .fsize-9{
@@ -189,7 +177,7 @@ input::selection {
 .contact_alert_text a{
     color: gray;
 }
-.messages_header {
+.messages-top {
     display: flex;
     justify-content: space-between;
     background-color: #EAEAEA;
@@ -197,43 +185,43 @@ input::selection {
     padding: 3px;
 }
 
-.messages_header_icons {
+.messages-header-icons {
     display: flex;
 }
 
-.messages_header_avi {
+.messages-header {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
     padding: 8px;
 }
-.messages_header_avi img{
+.messages-header img{
     width: 40px;
     height: 40px;
     border-radius: 50px;
 
 }
 
-.messages_header_user {
+.messages-header-user {
     display: flex;
     flex-direction: column;
     margin-top: 12px;
     font-size: 10px;
 }
 
-.messages_header_avi p {
+.messages-header p {
     margin-left: 10px;
     line-height: 0px;
 
 }
 
-.messages_header_icons i {
+.messages-header-icons i {
     margin: 0 8px;
     color: darkgrey;
 }
 
-.messages_body {
+.messages-body {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -259,7 +247,7 @@ input::selection {
     background-color: #D5F9BA;
 }
 
-.messages_footer {
+.messages-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -267,13 +255,13 @@ input::selection {
     background-color: #F3EEEA;
 }
 
-.messages_footer i {
+.messages-footer i {
     margin: 0 25px;
     font-weight: bold;
     color: darkgrey;
 }
 
-.messages_footer input {
+.messages-footer input {
     width: calc(100% - 150px);
     height: 70%;
     border-radius: 10px;

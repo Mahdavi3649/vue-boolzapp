@@ -1,11 +1,25 @@
-/* Milestone 1
-Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
-Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
+/*
+ Milestone 1
+● Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e
+dall’interlocutore (bianco) assegnando due classi CSS diverse
+● Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
+nome e immagine di ogni contatto
+
 Milestone 2
-Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
-Click sul contatto mostra la conversazione del contatto cliccato
+● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
+messaggi relativi al contatto attivo all’interno del pannello della conversazione
+● Click sul contatto mostra la conversazione del contatto cliccato
 Questa é la struttura dati che dovete usare:
-copiatela cosí com'é e non fate modifiche a quello che contiene, c'é giá tutto quello che vi occorre per volgere l'esercizio. */
+copiatela cosí com'é e non fate modifiche a quello che contiene, c'é giá tutto quello che vi occorre per volgere l'esercizio.
+
+Milestone 3
+● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+“enter” il testo viene aggiunto al thread sopra, come messaggio verde
+● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+un “ok” come risposta, che apparirà dopo 1 secondo.
+
+*/
+
 
 const app = new Vue({
     el: "#app",
@@ -177,11 +191,40 @@ const app = new Vue({
             }
         ],
         searchContact: "",
+        inputText: ""     // prende il testo digitato dall'utente
     },
     methods: {
+
         contactChange(index){
             this.selected = index;
+        },
+        // funzione per il tasto enter
+        enterKey(){
+
+            // oggetto che si aggiunge all'array esistente
+            let inputMsg = {
+                date: '27/04/2022 16:20:00',
+                message: '',
+                status: 'sent'
+            };
+
+            inputMsg.message = this.inputText;
+            this.contacts[this.selected].messages.push(inputMsg);
+            this.inputText = "";     // pulizia del campo input
+
+            // risposta automatica al messaggio inviato
+            setTimeout( () => {
+                let autoReply = {
+                    date : '27/04/2022 16:30:00',
+                    message: 'Ciao come va',
+                    status: 'received'
+                };
+                // l'oggetto-risposta si pusha nell'array
+                this.contacts[this.selected].messages.push(autoReply);
+    
+            }, 1000);
+
         }
 
-    }
+    },
 })
