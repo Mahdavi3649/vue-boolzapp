@@ -36,11 +36,11 @@
                     <!-- aside-header-section -->
                     
                     <section class="contact-alert">
-                        <div class="contact_alert_icon">
+                        <div class="contact-alert-icon">
                             <i class="fas fa-bell-slash fa-xl"></i>
                         </div>
-                        <!-- contact_alert_icon -->
-                        <div class="contact_alert_text">
+                        <!-- contact-alert-icon -->
+                        <div class="contact-alert-text">
                             <p class="fsize-11">Ricevi notifiche di nuovi messaggi</p>
                             <a href="#">Attiva notifiche desktop</a>
                         </div>
@@ -62,7 +62,7 @@
                              <img :src="item.avatar">
                             <div class="ms-3">
                                 <p class="fsize-14"> {{item.name}}  
-                                    <span class="fsize-9"> {{item.messages[item.messages.length -1].date}} </span>
+                                    <span class="fsize-10"> {{item.messages[item.messages.length -1].date}} </span>
                                 </p>
                                 <span class="fsize-13">{{item.messages[item.messages.length -1].message}}</span>
 
@@ -80,7 +80,7 @@
                             <img :src="contacts[selected].avatar">
                             <div class="messages-header-user">
                                 <p class="fsize-14">{{contacts[selected].name}}</p>
-                                <p>Ultimo accesso : {{contacts[selected].messages[contacts[selected].messages.length -1].date}}</p>
+                                <p class="fsize-10">Ultimo accesso : {{contacts[selected].messages[contacts[selected].messages.length -1].date}}</p>
                             </div>
                         </div>
                         <!-- messages-header-->
