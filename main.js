@@ -23,6 +23,10 @@ Milestone 4
 contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
 “mar” rimangono solo Marco e Martina)
 
+Milestone 5 - opzionale
+● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
+permette di cancellare il messaggio selezionato
+
 */
 
 
@@ -196,7 +200,9 @@ const app = new Vue({
             }
         ],
         searchContact: "",
-        inputText: ""     // prende il testo digitato dall'utente
+        inputText: "",
+        message_dropdown: false,
+        // prende il testo digitato dall'utente
     },
     methods: {
 
@@ -230,6 +236,7 @@ const app = new Vue({
             }, 1000);
 
         },
+
         filterContact(){
             this.contacts.forEach(item => {
                 if (item.name.toLowerCase().includes(this.searchContact.toLowerCase())) {
@@ -241,6 +248,11 @@ const app = new Vue({
                 }
             });
         },
+
+        DeleteMessage(index){
+            this.contacts[this.selected].messages.splice(index, 1);
+            this.message_dropdown = false;
+        }
         
 
     }

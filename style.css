@@ -238,19 +238,22 @@ input::selection {
 }
 
 .sent, .received {
-    padding: 7px 18px;
+    padding: 7px;
+    padding-left: 16px;
+    padding-right: 30px;
     max-width: 260px;
     margin-bottom: 20px;
 }
-
+.sent .mr-3{
+    margin-right: 35px;
+}
 .sent{
     border-radius: 17px 17px 0px 17px;
+    position: relative;
 }
 .received{
     border-radius: 0px 17px 17px 17px;
 }
-
-
 .received {
     align-self: flex-start;
     background-color: #FFF;
@@ -259,6 +262,21 @@ input::selection {
 .sent {
     align-self: flex-end;
     background-color: #D5F9BA;
+}
+
+.chat-option{
+    position: absolute;
+    top: 0.3rem;
+    right: 0.8rem;
+}
+.message_dropdown{
+    width: 210px;
+    padding: 10px;
+    background-color: white;
+    position: absolute;
+    top: 24px;
+    border-radius: 5px;
+    line-height: 30px;
 }
 
 .messages-footer {
