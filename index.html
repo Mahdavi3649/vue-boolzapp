@@ -57,14 +57,14 @@
                     <!-- contact_search-section -->
     
                     <section class="contact-list">
-                        <div class="contact-list-style" v-for="(item, index) in contacts" :class="index === selected ? 'active' : ''" @click="contactChange(index)" v-if="item.visible" @click="active = index">
+                        <div class="contact-list-style" v-for="(contact, index) in contacts" :class="index === selected ? 'active' : ''" @click="contactChange(index)" v-if="contact.visible" @click="active = index">
                            
-                             <img :src="item.avatar">
+                             <img :src="contact.avatar">
                             <div class="ms-3">
-                                <p class="fsize-14"> {{item.name}}  
-                                    <span class="fsize-10"> {{item.messages[item.messages.length -1].date}} </span>
+                                <p class="fsize-14"> {{contact.name}}  
+                                    <span class="fsize-10"> {{contact.messages[contact.messages.length -1].date}} </span>
                                 </p>
-                                <span class="fsize-13">{{item.messages[item.messages.length -1].message}}</span>
+                                <span class="fsize-13">{{contact.messages[contact.messages.length -1].message}}</span>
 
                             </div>
                         </div>
@@ -94,9 +94,9 @@
                     <!-- messages-top-section -->
     
                     <section class="messages-body">
-                        <div v-for="(item, index) in contacts[selected].messages" v-bind:class="item.status">
+                        <div v-for="(contact, index) in contacts[selected].messages" v-bind:class="contact.status">
                             <span class="fsize-13 mr-3" v-if="contacts[selected].messages.length > 0">
-                                {{item.message}}
+                                {{contact.message}}
                             </span>
 
                             <span class="chat-option" >

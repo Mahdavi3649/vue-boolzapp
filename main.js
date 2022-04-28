@@ -34,11 +34,6 @@ const app = new Vue({
     el: "#app",
     data: {
 
-        message_dropdown: {
-            open: false,
-            selectedmsg: 0
-        },
-        selected: 0,
         contacts: [
             {
             name: 'Michele',
@@ -203,10 +198,16 @@ const app = new Vue({
                 ],
             }
         ],
-        searchContact: "",
-        inputText: "",
 
-        // prende il testo digitato dall'utente
+        selected: 0,
+        searchContact: "", 
+        inputText: "",        // prende il testo digitato dall'utente
+
+        message_dropdown: {
+            open: false,     //la tendina è chiusa by default che dobbiamo invertire true quando clicco
+            selectedmsg: 0   //index del messagio selezionato 
+        },
+ 
     },
     methods: {
 
@@ -218,7 +219,7 @@ const app = new Vue({
         enterKey(){
             // oggetto che si aggiunge all'array esistente
             let inputMsg = {
-                date: '27/04/2022 16:20:00',
+                date: new Date().toLocaleString("it"),
                 message: '',
                 status: 'sent'
             };
@@ -230,7 +231,7 @@ const app = new Vue({
             // risposta automatica al messaggio inviato
             setTimeout( () => {
                 let autoReply = {
-                    date : '27/04/2022 16:30:00',
+                    date : new Date().toLocaleString("it"),
                     message: 'Va bene, ci penso!',
                     status: 'received'
                 };
@@ -238,20 +239,23 @@ const app = new Vue({
                 this.contacts[this.selected].messages.push(autoReply);
     
             }, 1000);
-
         },
 
+        // funzione per la ricerca dei contatti
         filterContact(){
-            this.contacts.forEach(item => {
-                if (item.name.toLowerCase().includes(this.searchContact.toLowerCase())) {
-                    item.visible = true
+             // Ciclo tra i contatti
+            this.contacts.forEach(contact => {
+                if (contact.name.toLowerCase().includes(this.searchContact.toLowerCase())) {  // trasformo tutto in minuscolo per la ricerca
+                    contact.visible = true
                     //console.log("trovato");
                 } else {
-                    item.visible = false
+                    contact.visible = false
                     //console.log("Mi dispiace");
                 }
             });
         },
+
+        // il methodo, cliccando sui messaggi per aprire e chiudere dropdown  
         toggleDropdown(index){
             //console.log(index)
             if(index == this.message_dropdown.selectedmsg) 
@@ -261,16 +265,14 @@ const app = new Vue({
                 this.message_dropdown.open = true;
             }
             this.message_dropdown.selectedmsg = index;
-
-
         },
 
+        // funzione per cancellazione dei messaggi
         DeleteMessage(index){
             this.contacts[this.selected].messages.splice(index, 1);
             this.message_dropdown.open = false;
         }
         
-
     }
     
 })
