@@ -18,6 +18,11 @@ Milestone 3
 ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
 un “ok” come risposta, che apparirà dopo 1 secondo.
 
+Milestone 4
+● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+“mar” rimangono solo Marco e Martina)
+
 */
 
 
@@ -198,9 +203,9 @@ const app = new Vue({
         contactChange(index){
             this.selected = index;
         },
+
         // funzione per il tasto enter
         enterKey(){
-
             // oggetto che si aggiunge all'array esistente
             let inputMsg = {
                 date: '27/04/2022 16:20:00',
@@ -216,7 +221,7 @@ const app = new Vue({
             setTimeout( () => {
                 let autoReply = {
                     date : '27/04/2022 16:30:00',
-                    message: 'Ciao come va',
+                    message: 'Va bene, ci penso!',
                     status: 'received'
                 };
                 // l'oggetto-risposta si pusha nell'array
@@ -224,7 +229,20 @@ const app = new Vue({
     
             }, 1000);
 
-        }
+        },
+        filterContact(){
+            this.contacts.forEach(item => {
+                if (item.name.toLowerCase().includes(this.searchContact.toLowerCase())) {
+                    item.visible = true
+                    //console.log("trovato");
+                } else {
+                    item.visible = false
+                    //console.log("Mi dispiace");
+                }
+            });
+        },
+        
 
-    },
+    }
+    
 })

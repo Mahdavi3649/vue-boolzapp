@@ -49,10 +49,10 @@
                     <!-- contact-alert-section -->
     
                     <section class="contact-search">
-                        <button type="button" class="search-button">
+                        <button type="button" class="search-button"  @click="filterContact">
                             <i class="fas fa-search"></i>
                         </button>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchContact" @keyup="filterContact">
                     </section>
                     <!-- contact_search-section -->
     
