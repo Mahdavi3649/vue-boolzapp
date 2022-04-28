@@ -100,10 +100,10 @@
                             </span>
 
                             <span class="chat-option" >
-                                <i class="fa-solid fa-chevron-down"  @click="message_dropdown === true ? message_dropdown = false : message_dropdown = true"></i>
+                                <i class="fa-solid fa-chevron-down"  @click="toggleDropdown(index)"></i>
                             </span>
 
-                            <div class="message_dropdown" v-if="message_dropdown">
+                            <div class="message_dropdown" v-if="message_dropdown.open && message_dropdown.selectedmsg == index">
                                 <div>Message info</div>
                                 <div class="message-delete" @click="DeleteMessage(index)">
                                     Delete Message 

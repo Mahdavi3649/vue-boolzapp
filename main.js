@@ -34,6 +34,10 @@ const app = new Vue({
     el: "#app",
     data: {
 
+        message_dropdown: {
+            open: false,
+            selectedmsg: 0
+        },
         selected: 0,
         contacts: [
             {
@@ -201,7 +205,7 @@ const app = new Vue({
         ],
         searchContact: "",
         inputText: "",
-        message_dropdown: false,
+
         // prende il testo digitato dall'utente
     },
     methods: {
@@ -248,10 +252,22 @@ const app = new Vue({
                 }
             });
         },
+        toggleDropdown(index){
+            //console.log(index)
+            if(index == this.message_dropdown.selectedmsg) 
+            {
+                this.message_dropdown.open = !this.message_dropdown.open;
+            }else{
+                this.message_dropdown.open = true;
+            }
+            this.message_dropdown.selectedmsg = index;
+
+
+        },
 
         DeleteMessage(index){
             this.contacts[this.selected].messages.splice(index, 1);
-            this.message_dropdown = false;
+            this.message_dropdown.open = false;
         }
         
 
